@@ -8,7 +8,16 @@ export class Fleet {
     vehicles: Array<Vehicle> = [];
 
     registerVehicle(vehicle: Vehicle): void {
-        this.vehicles = [...this.vehicles, vehicle];
+        if (!this.contains(vehicle)) {
+            this.vehicles = [...this.vehicles, vehicle];
+            return;
+        }
+
+        console.log('This vehicule is already registered !');
+    }
+
+    contains(vehicle: Vehicle): boolean {
+        return this.vehicles.includes(vehicle);
     }
 
 }
