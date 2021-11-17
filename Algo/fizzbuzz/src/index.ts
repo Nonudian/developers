@@ -13,8 +13,8 @@ function fizzbuzz(n: number): Array<string | number> {
 }
 
 /** Check whether a number is divisible by a given divisor */
-function isDivisibleBy(number: number, divisor: number) {
-    return number % divisor === 0;
+function isDivisibleBy(n: number, divisor: number) {
+    return n % divisor === 0;
 }
 
 /** Recursive function of fizzbuzz algorithm, that stores values before displaying */

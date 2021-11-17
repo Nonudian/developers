@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "alwaysStrict": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "esnext",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+            "@model/*": [
+                "support/model/*"
+            ]
+        },
+    },
+    "exclude": [
+        "node_modules/"
+    ],
+    "include": [
+        "step-definitions/**/*",
+        "support/**/*"
+    ]
+}
