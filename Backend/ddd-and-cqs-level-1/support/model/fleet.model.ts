@@ -13,7 +13,7 @@ export class Fleet {
             return;
         }
 
-        console.log('This vehicule is already registered !');
+        console.log('This vehicule is already registered in your fleet.');
     }
 
     contains(vehicle: Vehicle): boolean {

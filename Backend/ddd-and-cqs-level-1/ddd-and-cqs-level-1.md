@@ -22,6 +22,7 @@ Feature: Register a vehicle
         When I register this vehicle into my fleet
         Then this vehicle should be part of my vehicle fleet
 
+    @second
     Scenario: I can't register same vehicle twice
         Given my fleet
         And a vehicle
