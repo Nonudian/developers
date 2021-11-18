@@ -13,7 +13,7 @@
         "experimentalDecorators": true,
         "noImplicitAny": true,
         "skipLibCheck": true,
-        "baseUrl": "./",
+        "baseUrl": "./src/",
         "paths": {
             "@model/*": [
                 "Domain/*"
@@ -24,7 +24,7 @@
         "node_modules/"
     ],
     "include": [
-        "Infra/step-definitions/**/*",
-        "Domain/**/*"
+        "**/Infra/step-definitions/**/*",
+        "**/Domain/**/*"
     ]
 }
