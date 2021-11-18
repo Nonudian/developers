@@ -2,10 +2,10 @@ const profile = [
     '--require-module ts-node/register',
     '--require-module tsconfig-paths/register',
     '--format progress',
-    '--require step-definitions/**/*.ts',
-    '--require support/**/*.ts',
+    '--require Infra/step-definitions/**/*.ts',
+    '--require Domain/**/*.ts',
     '--publish-quiet',
-    'features/**/*.feature',
+    'Infra/features/**/*.feature',
 ].join(' ')
 
 module.exports = { default: profile }

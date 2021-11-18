@@ -11,41 +11,22 @@ export class ParkVehicleSteps {
     private location!: Location;
     private vehicle: Vehicle = new Vehicle();
 
-    /** ALL GIVEN */
-
     @given('a location')
     givenALocation() {
         this.location = new Location();
     }
 
     @given('my vehicle has been parked into this location')
-    givenMyVehicleHasBeenParkedIntoThisLocation() {
-        this.vehicle.updateLocation(this.location);
-    }
-
-    /** ALL WHEN */
-
     @when('I park my vehicle at this location')
-    whenIParkMyVehicleAtThisLocation() {
-        this.vehicle.updateLocation(this.location);
-    }
-
     @when('I try to park my vehicle at this location')
-    whenITryToParkMyVehicleAtThisLocation() {
+    whenParkingVehicle() {
         this.vehicle.updateLocation(this.location);
     }
-
-    /** ALL THEN */
 
     @then('the known location of my vehicle should verify this location')
-    thenTheKnownLocationOfMyVehicleShouldVerifyThisLocation() {
-        expect(this.vehicle.location).equals(this.location);
-    }
-
     @then('I should be informed that my vehicle is already parked at this location')
-    thenIShouldBeInformedThatMyVehicleIsAlreadyParkedAtThisLocation() {
+    thenLocationVerifiedAndNotified() {
         expect(this.vehicle.location).equals(this.location);
     }
-
 
 }

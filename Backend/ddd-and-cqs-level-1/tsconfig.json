@@ -16,7 +16,7 @@
         "baseUrl": "./",
         "paths": {
             "@model/*": [
-                "support/model/*"
+                "Domain/*"
             ]
         },
     },
@@ -24,7 +24,7 @@
         "node_modules/"
     ],
     "include": [
-        "step-definitions/**/*",
-        "support/**/*"
+        "Infra/step-definitions/**/*",
+        "Domain/**/*"
     ]
 }

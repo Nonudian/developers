@@ -1,4 +1,4 @@
-import { before, binding, given, then, when } from 'cucumber-tsflow';
+import { binding, given, then, when } from 'cucumber-tsflow';
 import { expect } from 'chai';
 
 import { Fleet } from '@model/fleet.model';
@@ -11,8 +11,6 @@ export class RegisterVehicleSteps {
     private fleet!: Fleet;
     protected vehicle!: Vehicle;
     private anotherFleet!: Fleet;
-
-    /** ALL GIVEN */
 
     @given('my fleet')
     givenMyFleet() {
@@ -39,19 +37,11 @@ export class RegisterVehicleSteps {
         this.anotherFleet.registerVehicle(this.vehicle);
     }
 
-    /** ALL WHEN */
-
     @when('I register this vehicle into my fleet')
-    whenIRegisterThisVehicleIntoMyFleet() {
-        this.fleet.registerVehicle(this.vehicle);
-    }
-
     @when('I try to register this vehicle into my fleet')
-    whenITryToRegisterThisVehicleIntoMyFleet() {
+    whenRegisteringVehicleIntoMyFleet() {
         this.fleet.registerVehicle(this.vehicle);
     }
-
-    /** ALL THEN */
 
     @then('this vehicle should be part of my vehicle fleet')
     thenVehicleShouldBePartOfMyVehicleFleet() {

@@ -1,5 +1,4 @@
 
-
 export class Location {
 
     longitude!: number;
