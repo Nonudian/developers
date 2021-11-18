@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "author": "William CHAZOT (Nonudian)",
     "scripts": {
+        "start": "ts-node src/App/index.ts",
         "test": "cucumber-js --profile default"
     },
     "devDependencies": {

@@ -3,8 +3,9 @@ import { Vehicle } from './vehicle.model';
 
 export class Fleet {
 
-    userId!: number;
-    fleetId!: number;
+    private static increment = 0;
+
+    fleetId: number = Fleet.increment++;
     vehicles: Array<Vehicle> = [];
 
     registerVehicle(vehicle: Vehicle): void {

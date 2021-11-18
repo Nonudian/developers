@@ -3,8 +3,11 @@ import { Location } from './location.model';
 
 export class Vehicle {
 
-    vehiclePlateNumber!: string;
-    location!: Location;
+    location: Location = new Location();
+
+    constructor(
+        public vehiclePlateNumber: string = 'XX-YYY-ZZ',
+    ) { }
 
     updateLocation(location: Location): void {
         if (!this.isAlreadyParkedAt(location)) {

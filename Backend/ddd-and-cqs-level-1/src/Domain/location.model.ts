@@ -1,8 +1,10 @@
 
 export class Location {
 
-    longitude!: number;
-    latitude!: number;
-    altitude!: number;
+    constructor(
+        public longitude: number = 0,
+        public latitude: number = 0,
+        public altitude: number = 0
+    ) { }
 
 }
