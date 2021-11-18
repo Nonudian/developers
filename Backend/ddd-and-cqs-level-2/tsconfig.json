@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "alwaysStrict": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "esnext",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+            "@model/*": [
+                "src/Domain/*"
+            ]
+        },
+    },
+    "exclude": [
+        "node_modules/"
+    ],
+    "include": [
+        "src/App/**/*",
+        "src/Infra/step-definitions/**/*",
+        "src/Domain/**/*"
+    ]
+}
