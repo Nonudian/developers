@@ -1,4 +1,4 @@
-# Backend Section - Part 1 - DDD, CQS, BDD tests
+# Backend Section - Part 2 - Database, CLI
 
 Taken from Part 1, this is approximately the same structure:
 
@@ -21,13 +21,19 @@ Taken from Part 1, this is approximately the same structure:
 
 ---
 
-I've used `typeorm` framework and `pg` package to link models to my `postgresql` database, and `yargs` library for CLI managing.
-
----
-
 Run `npm i` to install dependencies, then both options again:
 - `npm test`, same as previous part
 - `npx tsc` to produce `/build` folder, then `npm link` to symlink custom prefix command (according to `bin` option in `package.json`), so now you can execute CLI command:
     * `fleet create <userId: uuid>` to create a new fleet for a given user (the fleetId is displayed in return)
     * `fleet register-vehicle <fleetId: uuid> <plateNumber: string>` to register vehicle to a given fleet
     * `fleet localize-vehicle <fleetId: uuid> <plateNumber: string> <lng: number> <lat: number> [alt: number]` to localize/park a vehicle according to new location (lng, lat and optional alt)
+    
+---
+
+I've used `typeorm` framework and `pg` package to link models to my `postgresql` database, and `yargs` library for CLI managing.
+
+--- 
+
+To prove that the persistence with CLI is working (because that's not sure that's working for you, depending on your setup), I take a picture of both terminals (cli commands and database connection):  
+
+![Both terminals to prove persistence with CLI](persistence-cli.png)
