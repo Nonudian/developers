@@ -1,13 +1,16 @@
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+
 import { Fleet } from './fleet.model';
-import { Vehicle } from './vehicle.model';
 
 
+@Entity({ name: 'application_user' })
 export class User {
 
-    private static increment = 0;
+    @PrimaryGeneratedColumn('uuid')
+    id!: string;
 
-    userId: number = User.increment++;
-    fleets: Array<Fleet> = [];
-    vehicles: Array<Vehicle> = [];
+    @OneToOne(_ => Fleet, fleet => fleet, { cascade: true })
+    @JoinColumn({ name: 'fleet_id', referencedColumnName: 'id' })
+    fleet!: Fleet;
 
 }

@@ -1,12 +1,24 @@
+import { Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert } from 'typeorm';
+
 import { Vehicle } from './vehicle.model';
 
 
+@Entity()
 export class Fleet {
 
-    private static increment = 0;
+    @PrimaryGeneratedColumn('uuid')
+    id!: string;
 
-    fleetId: number = Fleet.increment++;
-    vehicles: Array<Vehicle> = [];
+    @ManyToMany(_ => Vehicle, vehicle => vehicle, { cascade: true })
+    @JoinTable()
+    vehicles!: Array<Vehicle>;
+
+    @BeforeInsert()
+    private _(): void { this.vehicles = []; }
+
+    private contains(vehicle: Vehicle): boolean {
+        return this.vehicles.includes(vehicle);
+    }
 
     registerVehicle(vehicle: Vehicle): void {
         if (!this.contains(vehicle)) {
@@ -15,10 +27,6 @@ export class Fleet {
         }
 
         console.log('This vehicule is already registered in your fleet.');
-    }
-
-    contains(vehicle: Vehicle): boolean {
-        return this.vehicles.includes(vehicle);
     }
 
 }

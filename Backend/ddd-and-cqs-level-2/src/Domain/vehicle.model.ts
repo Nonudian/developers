@@ -1,25 +1,47 @@
-import { Location } from './location.model';
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 
-export class Vehicle {
+interface Location {
+    longitude: number;
+    latitude: number;
+    altitude: number;
+};
 
-    location: Location = new Location();
+@Entity()
+export class Vehicle implements Location {
 
-    constructor(
-        public vehiclePlateNumber: string = 'XX-YYY-ZZ',
-    ) { }
+    @PrimaryColumn()
+    vehiclePlateNumber!: string;
+
+    @Column({ type: 'numeric', nullable: true })
+    longitude!: number;
+
+    @Column({ type: 'numeric', nullable: true })
+    latitude!: number;
+
+    @Column({ type: 'numeric', nullable: true })
+    altitude!: number;
+
+    constructor(vehiclePlateNumber: string) {
+        this.vehiclePlateNumber = vehiclePlateNumber;
+    }
+
+    private isAlreadyParkedAt({ longitude, latitude, altitude }: Location): boolean {
+        return this.longitude === longitude
+            && this.latitude === latitude
+            && this.altitude === altitude;
+    }
 
     updateLocation(location: Location): void {
         if (!this.isAlreadyParkedAt(location)) {
-            this.location = location;
+            const { longitude, latitude, altitude } = location;
+            this.longitude = longitude;
+            this.latitude = latitude;
+            this.altitude = altitude;
             return;
         }
 
         console.log('This vehicule is already parked at this location.');
-    }
-
-    isAlreadyParkedAt(location: Location): boolean {
-        return this.location === location;
     }
 
 }
