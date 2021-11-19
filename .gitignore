@@ -1,6 +1,9 @@
-# VSCode
+# VSCODE
 /.vscode
 
 # NPM
 **/node_modules
 package-lock.json
+
+# PRODUCTION
+**/build

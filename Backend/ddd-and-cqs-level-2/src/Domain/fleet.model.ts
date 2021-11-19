@@ -14,15 +14,12 @@ export class Fleet {
     vehicles!: Array<Vehicle>;
 
     private contains(vehicle: Vehicle): boolean {
-        return this.vehicles.includes(vehicle);
+        return this.vehicles && this.vehicles.includes(vehicle);
     }
-
-    @BeforeInsert()
-    build(): void { this.vehicles = []; }
 
     registerVehicle(vehicle: Vehicle): void {
         if (!this.contains(vehicle)) {
-            this.vehicles = [...this.vehicles, vehicle];
+            this.vehicles = [...this.vehicles || [], vehicle];
             return;
         }
 

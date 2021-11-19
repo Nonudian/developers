@@ -15,7 +15,6 @@ export class RegisterVehicleSteps {
     @given('my fleet')
     givenMyFleet() {
         this.fleet = new Fleet();
-        this.fleet.build();
     }
 
     @given('a vehicle')
@@ -31,7 +30,6 @@ export class RegisterVehicleSteps {
     @given('the fleet of another user')
     givenTheFleetOfAnotherUser() {
         this.anotherFleet = new Fleet();
-        this.anotherFleet.build();
     }
 
     @given('this vehicle has been registered into the other user\'s fleet')
