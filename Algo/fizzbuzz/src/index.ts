@@ -1,23 +1,23 @@
 
 
-/** Fizzbuzz rules */
+/* Fizzbuzz rules */
 const rules = [
     { divisor: 3, display: 'Fizz' },
     { divisor: 5, display: 'Buzz' }
 ];
 
 
-/** Main function. We assume that number param is positive */
+/* Main function. We assume that number param is positive */
 function fizzbuzz(n: number): Array<string | number> {
     return recursiveFizzbuzz(n).reverse();
 }
 
-/** Check whether a number is divisible by a given divisor */
+/* Check whether a number is divisible by a given divisor */
 function isDivisibleBy(n: number, divisor: number) {
     return n % divisor === 0;
 }
 
-/** Recursive function of fizzbuzz algorithm, that stores values before displaying */
+/* Recursive function of fizzbuzz algorithm, that stores values before displaying */
 function recursiveFizzbuzz(n: number): Array<string | number> {
     const string = rules
         .filter(({ divisor }) => isDivisibleBy(n, divisor))
@@ -28,5 +28,5 @@ function recursiveFizzbuzz(n: number): Array<string | number> {
 }
 
 
-/** Just only one test is necessary, I mean... */
+/* Just only one test is necessary, I mean... */
 console.log(fizzbuzz(42));
