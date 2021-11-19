@@ -1,7 +1,7 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 
-interface Location {
+export interface Location {
     longitude: number;
     latitude: number;
     altitude: number;
@@ -24,6 +24,14 @@ export class Vehicle implements Location {
 
     constructor(vehiclePlateNumber: string) {
         this.vehiclePlateNumber = vehiclePlateNumber;
+    }
+
+    getLocation(): Location {
+        return {
+            longitude: this.longitude,
+            latitude: this.latitude,
+            altitude: this.altitude
+        };
     }
 
     private isAlreadyParkedAt({ longitude, latitude, altitude }: Location): boolean {

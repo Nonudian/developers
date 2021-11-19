@@ -1,19 +1,18 @@
 import { binding, given, then, when } from 'cucumber-tsflow';
 import { expect } from 'chai';
 
-import { Vehicle } from '@model/vehicle.model';
-import { Location } from '@model/location.model';
+import { Vehicle, Location } from '@model/vehicle.model';
 
 
 @binding()
 export class ParkVehicleSteps {
 
     private location!: Location;
-    private vehicle: Vehicle = new Vehicle();
+    private vehicle: Vehicle = new Vehicle('AA-229-AA');
 
     @given('a location')
     givenALocation() {
-        this.location = new Location();
+        this.location = { longitude: -92.634, latitude: 30.123, altitude: 707 };
     }
 
     @given('my vehicle has been parked into this location')
@@ -26,7 +25,7 @@ export class ParkVehicleSteps {
     @then('the known location of my vehicle should verify this location')
     @then('I should be informed that my vehicle is already parked at this location')
     thenLocationVerifiedAndNotified() {
-        expect(this.vehicle.location).equals(this.location);
+        expect(this.vehicle.getLocation()).deep.equals(this.location);
     }
 
 }

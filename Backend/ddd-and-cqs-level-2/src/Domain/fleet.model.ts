@@ -13,12 +13,12 @@ export class Fleet {
     @JoinTable()
     vehicles!: Array<Vehicle>;
 
-    @BeforeInsert()
-    private _(): void { this.vehicles = []; }
-
     private contains(vehicle: Vehicle): boolean {
         return this.vehicles.includes(vehicle);
     }
+
+    @BeforeInsert()
+    build(): void { this.vehicles = []; }
 
     registerVehicle(vehicle: Vehicle): void {
         if (!this.contains(vehicle)) {

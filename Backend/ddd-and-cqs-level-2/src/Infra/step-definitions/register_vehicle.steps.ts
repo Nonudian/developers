@@ -9,17 +9,18 @@ import { Vehicle } from '@model/vehicle.model';
 export class RegisterVehicleSteps {
 
     private fleet!: Fleet;
-    protected vehicle!: Vehicle;
+    private vehicle!: Vehicle;
     private anotherFleet!: Fleet;
 
     @given('my fleet')
     givenMyFleet() {
         this.fleet = new Fleet();
+        this.fleet.build();
     }
 
     @given('a vehicle')
     givenAVehicle() {
-        this.vehicle = new Vehicle();
+        this.vehicle = new Vehicle('AA-229-AA');
     }
 
     @given('I have registered this vehicle into my fleet')
@@ -30,6 +31,7 @@ export class RegisterVehicleSteps {
     @given('the fleet of another user')
     givenTheFleetOfAnotherUser() {
         this.anotherFleet = new Fleet();
+        this.anotherFleet.build();
     }
 
     @given('this vehicle has been registered into the other user\'s fleet')
